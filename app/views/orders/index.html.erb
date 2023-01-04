@@ -1,14 +1,52 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Orders</h1>
+<h1>Live Order Board</h1>
 
-<div id="orders">
-  <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <tbody>
+    <tr>
+      <th>User ID</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Order Type</th>     
+    </tr>
+
+    <% @orders.each do |order| %>
+      <tr>
+        <th><%= order.user_id %></th>
+        <th><%= order.quantity.to_s + "kg"%></th>
+        <th><%= "£" + order.price.to_s %></th>
+        <th><%= order.otype.humanize %></th>
+        <th><%= link_to 'Show', order %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New order", new_order_path %>
+
+<h1>Order Summary</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Order Type</th>     
+    </tr>
+
+    <% @order_summary.each do |order| %>
+      <tr>
+        <th><%= order.total_quantity.to_s + "kg"%></th>
+        <th><%= "£" + order.price.to_s %></th>
+        <th><%= order.otype.humanize %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<style>
+  th {
+    text-align: center;
+  }
+</style>

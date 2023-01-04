@@ -4,6 +4,16 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = Order.all
+
+    query_1 = Order.where(otype: 1).select('price, otype, SUM(quantity) as total_quantity')
+      .group(:price, :otype)
+      .order(price: :asc)
+
+    query_2 = Order.where(otype: 0).select('price, otype, SUM(quantity) as total_quantity')
+      .group(:price, :otype)
+      .order(price: :desc)
+
+    @order_summary = query_1 + query_2
   end
 
   # GET /orders/1 or /orders/1.json
