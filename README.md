@@ -12,6 +12,7 @@ Notes/Reasoning:
 5. There is an image of the completed task in SilverMarket/app/assets/images/completed_task_image.png
 6. I've shortened some of the naming of things, as I'm not a fan of long names for things. Happy to follow consensus in the real world though. 'price per kg' = price, order quantity = quantity.
 7. order_type is otype (type is a reserved word for single table inheritance in Rails) and is an enum because it is a Rails standard, is easy to query and Rails has some nice functionality that supports it. There are alternatives to this approach but they all have more issues I believe.
+8. BUY/SELL sorting was done by firing off two qieries and then merging into an array, see orders_controller#index (@order_summary = query_1 + query_2)
 
 Setup
 1. Install Ruby 3.1.2
