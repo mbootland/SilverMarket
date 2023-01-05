@@ -5,12 +5,12 @@ Assumptions:
 4. Docker and RSPEC tests are not required. I would have added these but I am a bit busy at the moment. Happy to add them if given more time.
 
 Notes/Reasoning:
-1. I used Rails scaffolding because it is easy and enforces Convention over Configuration.
+1. I used Rails scaffolding because it is easy and enforces Convention over Configuration. See Order Model View Controller.
 2. I used SQL because it seemed a clean and neat way to do the data aggregation work. 
 3. I used SQLite because it is default, requires no setup and this is only a small task. Normally I would use PostgreSQL.
 4. I seeded the database with the data shown in excercise 3.
 5. There is an image of the completed task in SilverMarket/app/assets/images/completed_task_image.png
-6. I've shortened some of the naming of things, as I'm not a fan of long names for things. Happy to follow consensus in the real world though.
+6. I've shortened some of the naming of things, as I'm not a fan of long names for things. Happy to follow consensus in the real world though. 'price per kg' = price, order quantity = quantity.
 7. order_type is otype (type is a reserved word for single table inheritance in Rails) and is an enum because it is a Rails standard, is easy to query and Rails has some nice functionality that supports it. There are alternatives to this approach but they all have more issues I believe.
 
 Setup
